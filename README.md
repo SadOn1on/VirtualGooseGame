@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-**VirtualGooseGame** is an interactive virtual pet game where users can manage and care for their digital geese. The game allows users to monitor their goose's health, hunger, and overall well-being. Users can also use various items to keep their goose healthy and happy. The application consists of a backend server built with Spring Boot and a frontend client built with HTML, CSS and JS.****
+**VirtualGooseGame** is an interactive virtual pet game where users can manage and care for their digital geese. The game allows users to monitor their goose's health, hunger, and overall well-being. Users can also use various items to keep their goose healthy and happy. The application consists of a backend server built with Spring Boot and a frontend client built with HTML, CSS and JS.
 
 ## Features
 
