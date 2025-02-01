@@ -24,7 +24,6 @@
 - PostgreSQL (for production)
 ### Frontend
 
-- React
 - HTML/CSS
 - JavaScript
 ### Testing
