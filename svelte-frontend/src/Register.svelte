@@ -4,7 +4,7 @@
 
     const dispatch = createEventDispatcher();
 
-    const serverUrl = 'http://localhost:9000'; // Update this if needed
+    const serverUrl = 'https://orca-app-hv32q.ondigitalocean.app/login';
 
     let username = '';
     let password = '';
@@ -26,7 +26,7 @@
             if (response.status === 200 || response.status === 201) {
                 successMessage = 'Registration successful!';
                 errorMessage = '';
-                dispatch('register-success'); // Emit event on successful registration
+                dispatch('register-success');
             }
         } catch (error) {
             errorMessage = error.response ? error.response.data : error.message;

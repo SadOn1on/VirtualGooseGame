@@ -4,10 +4,10 @@
 
     const dispatch = createEventDispatcher();
 
-    const serverUrl = "http://localhost:9000";
-    const clientId = "oidc-client";
+    const serverUrl = "https://orca-app-hv32q.ondigitalocean.app/login";
+    const clientId = "gooseGame-client";
     const authHeaderValue = "Basic " + btoa(`${clientId}:test-client`);
-    const redirectUri = "http://localhost:8080";
+    const redirectUri = "https://goosegame.tech";
 
     const ACCESS_TOKEN_KEY = "access_token";
 
@@ -18,7 +18,7 @@
             response_type: "code",
             client_id: clientId,
             redirect_uri: redirectUri,
-            scope: "test",
+            scope: "read",
         });
         window.location.href = `${serverUrl}/oauth2/authorize?${requestParams}`;
     };

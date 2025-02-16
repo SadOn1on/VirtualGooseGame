@@ -11,7 +11,7 @@
 
   const fetchItems = async () => {
       try {
-          const response = await axios.get('http://localhost:8081/item', {
+          const response = await axios.get('https://seashell-app-epta3.ondigitalocean.app/item', {
               headers: { Authorization: `Bearer ${localStorage.getItem(ACCESS_TOKEN_KEY)}` }
           });
           items = response.data;
@@ -22,7 +22,7 @@
 
   const fetchGoose = async () => {
       try {
-          const response = await axios.get('http://localhost:8081/goose', {
+          const response = await axios.get('https://seashell-app-epta3.ondigitalocean.app/goose', {
               headers: { Authorization: `Bearer ${localStorage.getItem(ACCESS_TOKEN_KEY)}` }
           });
           goose = response.data;
@@ -33,7 +33,7 @@
 
   const useItem = async (itemId) => {
       try {
-          const response = await axios.post(`http://localhost:8081/item/use/${itemId}`, {}, {
+          const response = await axios.post(`https://seashell-app-epta3.ondigitalocean.app/item/use/${itemId}`, {}, {
               headers: { Authorization: `Bearer ${localStorage.getItem(ACCESS_TOKEN_KEY)}` }
           });
           goose = response.data;
@@ -45,7 +45,7 @@
 
   const deleteItem = async (itemId) => {
       try {
-          await axios.delete(`http://localhost:8081/item/delete/${itemId}`, {
+          await axios.delete(`https://seashell-app-epta3.ondigitalocean.app/item/delete/${itemId}`, {
               headers: { Authorization: `Bearer ${localStorage.getItem(ACCESS_TOKEN_KEY)}` }
           });
           fetchItems();
