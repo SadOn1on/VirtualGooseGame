@@ -1,5 +1,7 @@
 package com.goosegame.backend.service;
 
+import com.goosegame.backend.dto.ItemDto;
+import com.goosegame.backend.mapper.MapstructMapper;
 import com.goosegame.backend.model.Item;
 import com.goosegame.backend.repository.ItemRepository;
 import com.goosegame.backend.model.User;
@@ -19,17 +21,25 @@ public class ItemService {
     private final ItemRepository itemRepository;
     private final ItemsAsyncService itemsAsyncService;
     private final UserRepository userRepository;
+    private final MapstructMapper mapper;
 
     @Autowired
     public ItemService(
-            ItemRepository itemRepository, ItemsAsyncService itemsAsyncService, UserRepository userRepository) {
+            ItemRepository itemRepository,
+            ItemsAsyncService itemsAsyncService,
+            UserRepository userRepository,
+            MapstructMapper mapper
+    ) {
         this.itemRepository = itemRepository;
         this.itemsAsyncService = itemsAsyncService;
         this.userRepository = userRepository;
+        this.mapper = mapper;
     }
 
-    public List<Item> getAllByUsername(String username) {
-        return itemRepository.findAllByUserUsername(username);
+    public List<ItemDto> getAllByUsername(String username) {
+        return itemRepository.findAllByUserUsername(username).stream()
+                .map(mapper::toItemDto)
+                .toList();
     }
 
     public void deleteById(Long id, String username) throws ItemDoesNotBelongToUserException, ItemDoesNotExistException {
@@ -54,7 +64,7 @@ public class ItemService {
     }
 
     @Scheduled(timeUnit = TimeUnit.MINUTES, fixedDelayString = "${app.item-add-timing}")
-    protected    void giveRandomItemsToUsers() {
+    protected void giveRandomItemsToUsers() {
         Page<User> users = userRepository.findAll(PageRequest.ofSize(100));
         List<User> userList = users.getContent();
         itemsAsyncService.createNewItems(userList);

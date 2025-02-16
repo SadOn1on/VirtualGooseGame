@@ -2,9 +2,13 @@ package com.goosegame.backend.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
-@Table(name = "t_item")
+@Table(name = "item")
+@Getter
+@Setter
 public class Item {
     @Id
     @Column(name = "id")
@@ -53,74 +57,4 @@ public class Item {
         this.infected = item.isInfected();
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getHealthValue() {
-        return healthValue;
-    }
-
-    public void setHealthValue(int healthValue) {
-        this.healthValue = healthValue;
-    }
-
-    public int getNutritionValue() {
-        return nutritionValue;
-    }
-
-    public void setNutritionValue(int nutritionValue) {
-        this.nutritionValue = nutritionValue;
-    }
-
-    public boolean isInfected() {
-        return infected;
-    }
-
-    public void setInfected(boolean infected) {
-        this.infected = infected;
-    }
-
-    public String getHolderName() {
-        return user.getUsername();
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Item item = (Item) o;
-        return healthValue == item.healthValue && nutritionValue == item.nutritionValue && infected == item.infected && id.equals(item.id) && name.equals(item.name);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id.hashCode();
-        result = 31 * result + name.hashCode();
-        result = 31 * result + healthValue;
-        result = 31 * result + nutritionValue;
-        result = 31 * result + Boolean.hashCode(infected);
-        return result;
-    }
 }

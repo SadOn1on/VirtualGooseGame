@@ -24,7 +24,7 @@ public class GooseAsyncService {
                 goose.changeHealth(-5);
             }
             goose.changeHunger(5);
-            if (goose.getIll()) {
+            if (goose.getIsIll()) {
                 goose.changeHealth(-5);
             }
             gooseRepository.save(goose);

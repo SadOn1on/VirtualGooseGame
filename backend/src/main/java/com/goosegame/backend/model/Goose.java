@@ -2,9 +2,13 @@ package com.goosegame.backend.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
-@Table(name = "t_goose")
+@Table(name = "goose")
+@Getter
+@Setter
 public class Goose {
     @Id
     @Column(name = "id")
@@ -60,54 +64,6 @@ public class Goose {
         this.hunger = hunger;
     }
 
-    public Integer getHunger() {
-        return hunger;
-    }
-
-    public void setHunger(Integer hunger) {
-        this.hunger = hunger;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public Boolean getIll() {
-        return isIll;
-    }
-
-    public void setIll(Boolean ill) {
-        isIll = ill;
-    }
-
-    public Integer getHealth() {
-        return health;
-    }
-
-    public void setHealth(Integer health) {
-        this.health = health;
-    }
-
     public void changeHunger(int step) {
         if (hunger + step > 100) {
             hunger = 100;
@@ -126,14 +82,6 @@ public class Goose {
         } else {
             health += step;
         }
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     @Override

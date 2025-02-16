@@ -1,7 +1,7 @@
 package com.goosegame.backend.configuration;
 
 import com.goosegame.backend.model.Item;
-import com.goosegame.backend.model.ItemFactory;
+import com.goosegame.backend.service.ItemFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

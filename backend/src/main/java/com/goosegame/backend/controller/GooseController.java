@@ -1,6 +1,6 @@
 package com.goosegame.backend.controller;
 
-import com.goosegame.backend.model.Goose;
+import com.goosegame.backend.dto.GooseDto;
 import com.goosegame.backend.service.GooseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +19,7 @@ public class GooseController {
     }
 
     @GetMapping
-    public Goose getGoose(Principal principal) {
-        return service.findByUsername(principal.getName());
+    public GooseDto serveGoose(Principal principal) {
+        return service.serveGoose(principal.getName());
     }
 }

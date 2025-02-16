@@ -3,6 +3,8 @@
 !**/src/test
 */target
 */.gitignore
+*/node_modules/
+*/public/build/
 
 ### IntelliJ IDEA ###
 *.iws

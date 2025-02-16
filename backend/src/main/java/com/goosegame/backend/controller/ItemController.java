@@ -1,8 +1,8 @@
 package com.goosegame.backend.controller;
 
-import com.goosegame.backend.model.Goose;
+import com.goosegame.backend.dto.GooseDto;
+import com.goosegame.backend.dto.ItemDto;
 import com.goosegame.backend.service.GooseService;
-import com.goosegame.backend.model.Item;
 import com.goosegame.backend.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,12 +24,12 @@ public class ItemController {
     }
 
     @GetMapping
-    public List<Item> getAllItems(Principal principal) {
+    public List<ItemDto> getAllItems(Principal principal) {
         return itemService.getAllByUsername(principal.getName());
     }
 
     @PostMapping("/use/{itemId}")
-    public Goose useItem(@PathVariable Long itemId, Principal principal) {
+    public GooseDto useItem(@PathVariable Long itemId, Principal principal) {
         return gooseService.useItem(principal.getName(), itemService.getById(itemId));
     }
 

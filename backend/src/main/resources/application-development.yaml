@@ -1,0 +1,17 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: goosegamebackend
+  datasource:
+    url: jdbc:postgresql://localhost:5432/game
+    username: postgres
+    password: postgres
+  jpa:
+    show-sql: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9000
