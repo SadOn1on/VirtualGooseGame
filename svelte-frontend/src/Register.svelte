@@ -4,7 +4,7 @@
 
     const dispatch = createEventDispatcher();
 
-    const serverUrl = 'https://orca-app-hv32q.ondigitalocean.app/login';
+    const serverUrl = 'https://orca-app-hv32q.ondigitalocean.app';
 
     let username = '';
     let password = '';

@@ -4,7 +4,7 @@
 
     const dispatch = createEventDispatcher();
 
-    const serverUrl = "https://orca-app-hv32q.ondigitalocean.app/login";
+    const serverUrl = "https://orca-app-hv32q.ondigitalocean.app";
     const clientId = "gooseGame-client";
     const authHeaderValue = "Basic " + btoa(`${clientId}:test-client`);
     const redirectUri = "https://goosegame.tech";
