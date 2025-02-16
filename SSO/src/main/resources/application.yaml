@@ -5,10 +5,13 @@ logging:
   level:
     org.springframework.security: trace
 
+
 spring:
   application:
     name: SSO
   datasource:
+    hikari:
+      maximum-pool-size: 5
     url: ${DATASOURCE}
     username: ${POSTGRES_USER}
     password: ${POSTGRES_PASSWORD}
