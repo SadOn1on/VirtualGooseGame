@@ -1,6 +1,6 @@
 <script>
   import axios from 'axios';
-  import { createEventDispatcher, onMount } from 'svelte'; // Import onMount
+  import { createEventDispatcher, onMount } from 'svelte';
 
   const dispatch = createEventDispatcher();
 
@@ -59,7 +59,6 @@
       dispatch('logout');
   };
 
-  // Use onMount to fetch data when the component is first rendered
   onMount(() => {
       fetchGoose();
       fetchItems();
