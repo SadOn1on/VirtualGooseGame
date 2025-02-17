@@ -20,6 +20,8 @@
 - Spring Security
 - Spring Data JPA
 - PostgreSQL
+- Flyway
+- Mapstruct
   
 ### Frontend
 
