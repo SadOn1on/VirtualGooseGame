@@ -26,6 +26,7 @@
               headers: { Authorization: `Bearer ${localStorage.getItem(ACCESS_TOKEN_KEY)}` }
           });
           goose = response.data;
+          fetchItems();
       } catch (error) {
           console.error('Failed to fetch goose:', error);
       }
