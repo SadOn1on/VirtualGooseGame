@@ -31,7 +31,7 @@ spring:
               redirect-uris:
                 - "http://localhost:8080"
               scopes:
-                - "test"
+                - "read"
             require-authorization-consent: false
           token:
             access-token-time-to-live: 3600000
